@@ -14,6 +14,13 @@
       "dependencies": {},
       "hash": "429ff2dd09264fd091ed3005c7a4c247f118c7ae"
     },
+    "com.gamee.rope2d": {
+      "version": "https://github.com/gamee-studio/Rope2D.git?path=Assets/_Root",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "1e7a8eb5330ae0b2ea406fbc4c211d4c5d6ea635"
+    },
     "com.google.android.appbundle": {
       "version": "https://github.com/google-unity/android-app-bundle.git#1.8.0",
       "depth": 0,
