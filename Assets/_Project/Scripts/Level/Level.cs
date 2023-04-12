@@ -9,7 +9,8 @@ public class Level : MonoBehaviour
     private bool _isFingerDown;
     private bool _isFingerDrag;
 
-    private Camera Camera => GetComponentInChildren<Camera>(true);
+    private Camera _camera;
+    public Camera Camera => _camera ??= GetComponentInChildren<Camera>(true);
     
     #if UNITY_EDITOR
     [Button]

@@ -5,13 +5,13 @@ using pancake.Rope2DEditor;
 using UnityEngine;
 public class DragEndPoint : MonoBehaviour
 {
-    [SerializeField] private Camera camera;
+    private Camera _camera;
     [SerializeField] private RopeMaker ropeMaker;
     // Start is called before the first frame update
     public int typeEnd;
     void Start()
     {
-        
+        _camera = ropeMaker.GetComponentInParent<Level>().Camera;
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class DragEndPoint : MonoBehaviour
     private void OnMouseDrag()
     {
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 worldPosition = camera.ScreenToWorldPoint(mousePosition);
+        Vector3 worldPosition = _camera.ScreenToWorldPoint(mousePosition);
         
         worldPosition.z = 0;
         if(typeEnd == 1)
