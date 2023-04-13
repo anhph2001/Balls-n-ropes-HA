@@ -1,6 +1,7 @@
 using Pancake;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Level : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Level : MonoBehaviour
     
     private bool _isFingerDown;
     private bool _isFingerDrag;
-
+    public Transform SpawnBallPos;
     private Camera _camera;
     public Camera Camera => _camera ??= GetComponentInChildren<Camera>(true);
     

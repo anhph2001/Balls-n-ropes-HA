@@ -10,9 +10,12 @@ public class Ball : MonoBehaviour
     private Vector3 prePos;
     public Vector3 direction;
     public float force = 10f;
+    private Transform spawnPos;
+    
     void Start()
     {
         prePos = transform.position;
+        spawnPos = LevelController.Instance.currentLevel.SpawnBallPos;
     }
 
     // Update is called once per frame
@@ -23,6 +26,15 @@ public class Ball : MonoBehaviour
         {
             TimeCount = .5f;
             prePos = this.transform.position;
+        }
+    }
+
+    private void Update()
+    {
+        if (transform.position.y < -4f)
+        {
+            transform.position = spawnPos.position;
+            GetComponent<Rigidbody2D>().Sleep();
         }
     }
 
@@ -44,4 +56,5 @@ public class Ball : MonoBehaviour
             }
         }
     }
+    
 }
