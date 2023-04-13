@@ -23,8 +23,8 @@ public class SpawnRopeController : MonoBehaviour
     public void SpawnRope()
     {
         //Instantiate(Rope, SpawnPos.transform.position,Quaternion.identity);
-        var newRopeLine = Instantiate(Rope, SpawnPos.transform);
+        var newRopeLine = Instantiate(Rope, LevelController.Instance.currentLevel.transform);
         newRopeLine.transform.position = SpawnPos.transform.position;
-        newRopeLine.transform.DOMove(new Vector3(SpawnPos.transform.position.x, SpawnPos.transform.position.y + 3f, 0),1.5f);
+        newRopeLine.transform.DOMove(new Vector3(SpawnPos.transform.position.x, SpawnPos.transform.position.y + 4f, 0),1.5f);
     }
 }

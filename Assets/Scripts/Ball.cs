@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     private float TimeCount = .5f;
     private Vector3 prePos;
     public Vector3 direction;
-    public float force = 10f;
+    public float force = 20f;
     private Transform spawnPos;
     
     void Start()
