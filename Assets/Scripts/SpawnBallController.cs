@@ -5,14 +5,18 @@ using UnityEngine;
 public class SpawnBallController : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] private GameObject Ball;
+    [SerializeField] private Transform SpawnPos;
     void Start()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    public void SpawnBall()
     {
-        
+        var newBall = Instantiate(Ball, LevelController.Instance.currentLevel.transform);
+        newBall.transform.position = SpawnPos.transform.position;
+
     }
 }

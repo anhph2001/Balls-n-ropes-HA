@@ -20,6 +20,10 @@ public class DragEndPoint : MonoBehaviour
         var newLocalPos = typeEnd == 1? ropeMaker.end1 : ropeMaker.end2;
         newLocalPos.z = -1;
         transform.localPosition = newLocalPos;
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 1f);
+        Debug.Log(colliders.Length);
+        foreach (Collider hit in colliders)
+            Debug.Log(hit.gameObject);
     }
 
     private void OnMouseDrag()
@@ -42,5 +46,10 @@ public class DragEndPoint : MonoBehaviour
     private void OnMouseUp()
     {
         ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other.gameObject);
     }
 }
