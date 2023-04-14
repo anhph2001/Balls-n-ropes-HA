@@ -30,6 +30,7 @@ public class DragEndPoint : MonoBehaviour
         transform.localPosition = newLocalPos;
         if (hooked == true) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
         else ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+        if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void OnMouseDown()
@@ -78,7 +79,6 @@ public class DragEndPoint : MonoBehaviour
             {
                 ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
             }
-
             hooked = true;
             ropeMaker.CreateRope();
         }

@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     private float TimeCount = .5f;
     private Vector3 prePos;
     public Vector3 direction;
-    public float force = 20f;
+    public float force = 50f;
     private Transform spawnPos;
     
     void Start()
@@ -42,6 +42,7 @@ public class Ball : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ground"))
         {
+            LevelController.Instance.currentLevel.currentPoint += LevelController.Instance.currentLevel.pointWhenHit;
             direction = (transform.position - prePos).normalized;
             Debug.DrawRay(transform.position , direction * 1f, Color.yellow);
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, (transform.position - prePos).normalized,1f);
