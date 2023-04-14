@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2754923316371720577}
   - component: {fileID: 7720803129746202815}
   - component: {fileID: 8942942124651706862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: Anchor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0014397951, y: 0.0028257705}
+  m_Offset: {x: -0.017766025, y: 0.01809913}
   serializedVersion: 2
-  m_Radius: 0.48645735
+  m_Radius: 1.7153935
 --- !u!50 &8942942124651706862
 Rigidbody2D:
   serializedVersion: 4
