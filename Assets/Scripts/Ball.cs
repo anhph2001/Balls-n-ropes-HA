@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pancake;
+using pancake.Rope2DEditor;
 using UnityEngine;
-
 public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -33,8 +34,14 @@ public class Ball : MonoBehaviour
     {
         if (transform.position.y < -4f)
         {
+            GetComponent<TrailRenderer>().enabled = false;
             transform.position = spawnPos.position;
             GetComponent<Rigidbody2D>().Sleep();
+        }
+
+        if (transform.position.y > -4f && transform.position.y < 9) 
+        {
+            GetComponent<TrailRenderer>().enabled = true;
         }
     }
 
@@ -52,6 +59,8 @@ public class Ball : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Rope"))
                 {
                     GameObject rope = hit.collider.gameObject;
+                    RopeMaker rm = rope.GetComponentInParent<RopeMaker>();
+                    if (rm.ground.GetComponent<BoxCollider2D>().enabled)
                     rope.GetComponent<Rigidbody2D>().AddForce(direction*force,ForceMode2D.Impulse);
                 }
             }

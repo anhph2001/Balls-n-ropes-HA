@@ -13,7 +13,7 @@ public class DragEndPoint : MonoBehaviour
     [SerializeField] private CircleCollider2D circleCollider2D;
     // Start is called before the first frame update
     public int typeEnd;
-    private Vector3 StartPos;
+    public Vector3 StartPos;
     private bool hooked = false;
     void Start()
     {
@@ -37,11 +37,11 @@ public class DragEndPoint : MonoBehaviour
     {
         if (typeEnd == 1)
         {
-            StartPos = ropeMaker.end1;
+            StartPos = ropeMaker.transform.TransformPoint(ropeMaker.end1);
         }
         else
         {
-            StartPos = ropeMaker.end1;
+            StartPos = ropeMaker.transform.TransformPoint(ropeMaker.end2);
         }
     }
 
@@ -71,26 +71,46 @@ public class DragEndPoint : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(worldPosition, circleCollider2D.radius, Vector3.forward,10f, circleLayerMask);
         if (hit)
         {
-            if (typeEnd == 1)
+            bool circleHasHooked = hit.collider.gameObject.GetComponent<Anchor>().hasHooked;
+            if (!circleHasHooked)
             {
-                ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                if (typeEnd == 1)
+                {
+                    ropeMaker.end1 =
+                        ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                }
+                else
+                {
+                    ropeMaker.end2 =
+                        ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                }
+
+                hooked = true;
+                ropeMaker.CreateRope();
+                hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
             }
             else
             {
-                ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                if (typeEnd == 1)
+                {
+                    ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                }
+                else
+                {
+                    ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                }
+                ropeMaker.CreateRope();
             }
-            hooked = true;
-            ropeMaker.CreateRope();
         }
         else
         {
             if (typeEnd == 1)
             {
-                ropeMaker.end1 = StartPos;
+                ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(StartPos);
             }
             else
             {
-                ropeMaker.end2 = StartPos;
+                ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(StartPos);
             }
             ropeMaker.CreateRope();
         }

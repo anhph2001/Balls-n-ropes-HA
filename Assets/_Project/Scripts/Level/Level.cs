@@ -31,6 +31,7 @@ public class Level : MonoBehaviour
     private void Update()
     {
         Point.SetText(currentPoint+" / "+pointToWin );
+        if (currentPoint>=pointToWin) GameManager.Instance.OnWinGame();
     }
 
     void OnEnable()
