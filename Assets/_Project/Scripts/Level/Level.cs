@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class Level : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Level : MonoBehaviour
     public int currentPoint;
     public int pointWhenHit;
     public int pointToWin;
+    public Image LoadBar;
     public TextMeshProUGUI Point;
     #if UNITY_EDITOR
     [Button]
@@ -31,7 +33,8 @@ public class Level : MonoBehaviour
     private void Update()
     {
         Point.SetText(currentPoint+" / "+pointToWin );
-        if (currentPoint>=pointToWin) GameManager.Instance.OnWinGame();
+        if (currentPoint >= pointToWin) GameManager.Instance.OnWinGame();
+        LoadBar.fillAmount = (float)currentPoint / (float)pointToWin;
     }
 
     void OnEnable()
