@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Ball
   - Anchor
+  - EndPoint
   layers:
   - Default
   - TransparentFX

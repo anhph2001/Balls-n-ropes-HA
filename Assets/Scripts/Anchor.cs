@@ -23,6 +23,10 @@ public class Anchor : MonoBehaviour
         {
             hasHooked = false;
         }
+        else
+        {
+            if (!hit.collider.gameObject.CompareTag("EndPoint")) hasHooked = false;
+        }
 
 
     }
