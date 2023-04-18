@@ -76,13 +76,15 @@ public class DragEndPoint : MonoBehaviour
             {
                 if (typeEnd == 1)
                 {
+                    Vector3 pos = hit.collider.gameObject.transform.position;
                     ropeMaker.end1 =
-                        ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                        ropeMaker.transform.InverseTransformPoint(pos.x,pos.y,0);
                 }
                 else
                 {
+                    Vector3 pos = hit.collider.gameObject.transform.position;
                     ropeMaker.end2 =
-                        ropeMaker.transform.InverseTransformPoint(hit.collider.gameObject.transform.position);
+                        ropeMaker.transform.InverseTransformPoint(pos.x,pos.y,0);
                 }
 
                 hooked = true;
