@@ -222,6 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &385438438495440609
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +447,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &510264923502393288
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +588,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &604771506199094506
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &724042954665713745
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &741406306928775524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &943665412753421879
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,6 +1313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1326905704496081873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,6 +1454,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1347156285030542061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1595,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1420477679550862233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,6 +1736,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1663760744130726097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1877,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1857089386194108099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2018,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2086070743806405035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,6 +2190,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2270336503733588809
 GameObject:
   m_ObjectHideFlags: 0
@@ -2376,6 +2415,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2633661425347888498
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,6 +2556,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2855093600929014661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2652,6 +2697,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &2893437418720635755
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2904,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3049450088754340400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,6 +3045,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3076759337361166906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,6 +3186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3126803430653700022
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,6 +3327,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3704450011048310091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3408,6 +3468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3878365833217225636
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,6 +3609,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &3962072323507849934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,6 +3750,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4107462550854972761
 GameObject:
   m_ObjectHideFlags: 0
@@ -4197,6 +4266,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4534784572682745356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4335,6 +4407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4764234994789855605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4473,6 +4548,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &4859722755483070542
 GameObject:
   m_ObjectHideFlags: 0
@@ -4695,6 +4773,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5077655775311205546
 GameObject:
   m_ObjectHideFlags: 0
@@ -4833,6 +4914,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5083615245536066258
 GameObject:
   m_ObjectHideFlags: 0
@@ -5002,6 +5086,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5184216708351662232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5278,6 +5365,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5216963486852985441
 GameObject:
   m_ObjectHideFlags: 0
@@ -5416,6 +5506,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5888242163416658301
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,6 +5647,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6008334180507839377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +5788,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6177422841153392107
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,6 +5929,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6237244887211307225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6282,6 +6384,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6509244416998176977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6420,6 +6525,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6721336038585192248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6558,6 +6666,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6746235979071723334
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +6807,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6805221715175992631
 GameObject:
   m_ObjectHideFlags: 0
@@ -6937,6 +7051,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6978874349696733935
 GameObject:
   m_ObjectHideFlags: 0
@@ -7075,6 +7192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7387278671520968203
 GameObject:
   m_ObjectHideFlags: 0
@@ -7213,6 +7333,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7523212958970999764
 GameObject:
   m_ObjectHideFlags: 0
@@ -7435,6 +7558,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7678756680801649087
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,6 +7699,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7784160525431011271
 GameObject:
   m_ObjectHideFlags: 0
@@ -7757,6 +7886,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7844998074829451815
 GameObject:
   m_ObjectHideFlags: 0
@@ -7895,6 +8027,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7853329697416411364
 GameObject:
   m_ObjectHideFlags: 0
@@ -8033,6 +8168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &7885948181930567879
 GameObject:
   m_ObjectHideFlags: 0
@@ -8171,6 +8309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8352415124125362290
 GameObject:
   m_ObjectHideFlags: 0
@@ -8309,6 +8450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8389177240239401084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8447,6 +8591,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8545987292342694806
 GameObject:
   m_ObjectHideFlags: 0
@@ -8669,6 +8816,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8577827994896386836
 GameObject:
   m_ObjectHideFlags: 0
@@ -8807,6 +8957,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8664422152109359481
 GameObject:
   m_ObjectHideFlags: 0
@@ -8945,6 +9098,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &8830734335089076296
 GameObject:
   m_ObjectHideFlags: 0
@@ -9083,6 +9239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &9075726723622429184
 GameObject:
   m_ObjectHideFlags: 0
@@ -9221,6 +9380,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHooked: 0
+  anchorLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1001 &7516544412685454116
 PrefabInstance:
   m_ObjectHideFlags: 0
