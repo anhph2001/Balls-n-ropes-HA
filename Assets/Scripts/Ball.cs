@@ -36,6 +36,7 @@ public class Ball : MonoBehaviour
         {
             GetComponent<TrailRenderer>().enabled = false;
             transform.position = spawnPos.position;
+            this.gameObject.layer = LayerMask.NameToLayer("BallHitPipe");
             GetComponent<Rigidbody2D>().Sleep();
         }
 
@@ -61,10 +62,14 @@ public class Ball : MonoBehaviour
                     GameObject rope = hit.collider.gameObject;
                     RopeMaker rm = rope.GetComponentInParent<RopeMaker>();
                     if (rm.ground.GetComponent<BoxCollider2D>().enabled)
-                    rope.GetComponent<Rigidbody2D>().AddForce(direction*force,ForceMode2D.Impulse);
-                    
+                        rope.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
                 }
             }
+        }
+
+        if (col.gameObject.CompareTag("Pipe"))
+        {
+            this.gameObject.layer = LayerMask.NameToLayer("Ball");
         }
     }
     

@@ -16,6 +16,7 @@ public class SpawnBallController : MonoBehaviour
     public void SpawnBall()
     {
         var newBall = Instantiate(Ball, LevelController.Instance.currentLevel.transform);
+        newBall.layer = LayerMask.NameToLayer("BallHitPipe");
         newBall.transform.position = SpawnPos.transform.position;
 
     }

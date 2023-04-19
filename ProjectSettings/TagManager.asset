@@ -10,6 +10,7 @@ TagManager:
   - Ball
   - Anchor
   - EndPoint
+  - Pipe
   layers:
   - Default
   - TransparentFX
@@ -22,8 +23,8 @@ TagManager:
   - Rope
   - Ball
   - Circle
-  - 
-  - 
+  - Pipe
+  - BallHitPipe
   - 
   - 
   - 
