@@ -52,7 +52,6 @@ public class Ball : MonoBehaviour
         {
             LevelController.Instance.currentLevel.currentPoint += LevelController.Instance.currentLevel.pointWhenHit;
             direction = (transform.position - prePos).normalized;
-            Debug.DrawRay(transform.position , direction * 1f, Color.yellow);
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, (transform.position - prePos).normalized,1f);
             for (int i = 0; i < hits.Length; i++)
             { ;
