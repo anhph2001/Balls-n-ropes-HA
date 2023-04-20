@@ -23,14 +23,11 @@ public class DragEndPoint : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void UpdateEndPoint()
     {
         var newLocalPos = typeEnd == 1 ? ropeMaker.end1 : ropeMaker.end2;
         newLocalPos.z = -1;
         transform.localPosition = newLocalPos;
-        if (hooked == true) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
-        else ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
-        if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     private void OnMouseDown()
@@ -59,6 +56,7 @@ public class DragEndPoint : MonoBehaviour
             ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint((worldPosition));
         }
 
+        UpdateEndPoint();
         ropeMaker.CreateRope();
         ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
     }
@@ -90,6 +88,7 @@ public class DragEndPoint : MonoBehaviour
                 hooked = true;
                 ropeMaker.CreateRope();
                 hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
+                Debug.Log(hit.collider.gameObject.name);
             }
             else
             {
@@ -116,6 +115,11 @@ public class DragEndPoint : MonoBehaviour
             }
             ropeMaker.CreateRope();
         }
-        
+
+        UpdateEndPoint();
+        if (hooked == true) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
+        else ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+        if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+
     }
 }
