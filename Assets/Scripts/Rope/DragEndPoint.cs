@@ -14,12 +14,13 @@ public class DragEndPoint : MonoBehaviour
     // Start is called before the first frame update
     public int typeEnd;
     public Vector3 StartPos;
-    private bool hooked = false;
+    public int hooked = 0;
     void Start()
     {
         _camera = ropeMaker.GetComponentInParent<Level>().Camera;
-        hooked = false;
+        hooked = 0;
         ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+        UpdateEndPoint();
     }
 
     // Update is called once per frame
@@ -85,10 +86,9 @@ public class DragEndPoint : MonoBehaviour
                         ropeMaker.transform.InverseTransformPoint(pos.x,pos.y,0);
                 }
 
-                hooked = true;
+                hooked = 1;
                 ropeMaker.CreateRope();
                 hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
-                Debug.Log(hit.collider.gameObject.name);
             }
             else
             {
@@ -117,8 +117,7 @@ public class DragEndPoint : MonoBehaviour
         }
 
         UpdateEndPoint();
-        if (hooked == true) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
-        else ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+        if (ropeMaker.countHooked < 2) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
         if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
 
     }

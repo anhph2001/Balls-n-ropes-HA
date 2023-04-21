@@ -20,8 +20,7 @@ public class Anchor : MonoBehaviour
         
         RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, GetComponent<CircleCollider2D>().radius*transform.localScale.x,
             -Vector3.forward, 10f,anchorLayerMask);
-        Debug.DrawRay(transform.position,-Vector3.forward,Color.red);
-        
+
         if (hit.Length == 0)
         {
             hasHooked = false;
@@ -33,9 +32,5 @@ public class Anchor : MonoBehaviour
 
 
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, GetComponent<CircleCollider2D>().radius*transform.localScale.x);
-    }
+    
 }
