@@ -87,6 +87,8 @@ public class DragEndPoint : MonoBehaviour
                 }
 
                 hooked = 1;
+                ropeMaker.UpdateHookedCount();
+                
                 ropeMaker.CreateRope();
                 hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
             }
@@ -117,7 +119,8 @@ public class DragEndPoint : MonoBehaviour
         }
 
         UpdateEndPoint();
-        if (ropeMaker.countHooked < 2) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
+        ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
+        if (ropeMaker.countHooked < 2) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false; ;
         if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
 
     }

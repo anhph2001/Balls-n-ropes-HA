@@ -1,4 +1,5 @@
 ﻿using Rope2d;
+using UnityEngine.PlayerLoop;
 
 namespace pancake.Rope2DEditor
 {
@@ -74,7 +75,7 @@ namespace pancake.Rope2DEditor
         {
             countHooked = _dragEndPoints[0].hooked + _dragEndPoints[1].hooked;
         }
-
+        
         private void OnDrawGizmos()
         {
             var points = AllWorldPoints.ToList();
@@ -186,7 +187,18 @@ namespace pancake.Rope2DEditor
                 rope.OnNodesCreated();
                 rope.SetLineWidth(scale);
             }
-            
+            Vector3 end1Pos = _dragEndPoints[0].gameObject.transform.position;
+            Vector3 end2Pos = _dragEndPoints[1].gameObject.transform.position;
+            nodes[0].gameObject.GetComponent<HingeJoint2D>().anchor = new Vector2(0, 0);
+            nodes[0].gameObject.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(end1Pos.x,end1Pos.y);
+
+            HingeJoint2D[] hingeJoint2Ds = nodes[nodes.Count - 1].gameObject.GetComponents<HingeJoint2D>();
+            for (int i = 0; i < hingeJoint2Ds.Length; i++) if (hingeJoint2Ds[i].connectedBody == null)
+            {
+                hingeJoint2Ds[i].anchor = new Vector2(0, 0);
+                hingeJoint2Ds[i].connectedAnchor = new Vector2(end2Pos.x, end2Pos.y);
+            }
+            //nodes[ nodes.Count - 1].gameObject.GetComponent<HingeJoint2D>().connectedAnchor = new Vector2(end2Pos.x,end2Pos.y);
         }
 
         List<Vector3> CalculateSmoothedLocalPoints()
@@ -248,39 +260,7 @@ namespace pancake.Rope2DEditor
             return points;
         }
         
-        void CenterRope(RopeMaker rm)
-        {
-            var nodes = rm.GetComponentsInChildren<RopeNode>();
-            var bounds = ObjectUtils.GetBounds(nodes.Select(n => n.transform.position).ToList());
-            var offset = bounds.center - rm.transform.position;
-            ObjectUtils.ModifyTransformWithoutChildren(rm.transform, t => { t.position += offset; });
-            var localOffset = rm.transform.InverseTransformVector(offset);
-            rm.end1 -= localOffset;
-            rm.end2 -= localOffset;
-            rm.midPoints = rm.midPoints.Select(v => v - localOffset).ToList();
-            CreateRope();
-        }
-        
-        bool MoveLocalPos(Func<Vector3> localPosGetter, Action<Vector3> localPosSetter)
-        {
-            var lp = localPosGetter();
-            var wp = transform.TransformPoint(lp);
-
-            var rot = Tools.pivotRotation == PivotRotation.Global ? Quaternion.identity : transform.rotation;
-            var newWP = Handles.PositionHandle(wp, rot);
-
-            if (newWP != wp)
-            {
-                var newLP = transform.InverseTransformPoint(newWP);
-                Undo.RegisterCompleteObjectUndo(this, "Rope edit");
-                localPosSetter(newLP);
-                EditorUtility.SetDirty(this);
-
-                return true;
-            }
-
-            return false;
-        }
+      
         
     }
     [CustomEditor(typeof(RopeMaker))]
