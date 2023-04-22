@@ -11,6 +11,7 @@ TagManager:
   - Anchor
   - EndPoint
   - Pipe
+  - GunEmplacement
   layers:
   - Default
   - TransparentFX

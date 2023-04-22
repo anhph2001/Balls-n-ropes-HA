@@ -7,7 +7,7 @@ public class GunEmplacement : MonoBehaviour
 {
     // Start is called before the first frame update
     private Rigidbody2D rb;
-    [SerializeField] [Range(1f, 100f)] private float force;
+    [SerializeField] [Range(1f, 100f)] private float force = 45f;
     public Vector3 StartPos;
     private Camera _camera;
 
@@ -49,7 +49,9 @@ public class GunEmplacement : MonoBehaviour
         if (hit)
         {
             Vector3 anchorPos = hit.collider.gameObject.transform.position;
+            if (!hit.collider.gameObject.GetComponent<Anchor>().hasHooked)
             transform.position = new Vector3(anchorPos.x, anchorPos.y, 0);
+            else transform.position = StartPos;
         }
         else
         {
@@ -67,15 +69,13 @@ public class GunEmplacement : MonoBehaviour
             Vector2 aimDirection = new Vector2(ballPos.x,ballPos.y)  - rb.position;
             float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
             rb.rotation = aimAngle;
-
+            
             Rigidbody2D rbBall = col.gameObject.GetComponent<Rigidbody2D>();
             Vector3 direction = col.gameObject.transform.position - transform.position;
-            rbBall.AddForce(direction*force,ForceMode2D.Impulse);
+            rbBall.AddForce(direction*force*(Mathf.Abs(rbBall.velocity.y/13f)),ForceMode2D.Impulse);
+            
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawSphere(transform.position, .3f);
-    }
+
 }

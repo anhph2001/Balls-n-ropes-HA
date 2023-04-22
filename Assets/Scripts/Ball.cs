@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
     private float TimeCount = .5f;
     private Vector3 prePos;
     public Vector3 direction;
-    public float force = 50f;
+    [SerializeField] [Range(1f,300f)] private float force = 50f;
     private Transform spawnPos;
     
     void Start()

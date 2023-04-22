@@ -27,6 +27,11 @@ public class Anchor : MonoBehaviour
         }
         else
         {
+            if (hit.Any(col => col.collider.gameObject.CompareTag("GunEmplacement")))
+            {
+                hasHooked = true;
+                return;
+            }
             if(!hit.Any(col => col.collider.gameObject.CompareTag("EndPoint")))  hasHooked = false;
         }
 

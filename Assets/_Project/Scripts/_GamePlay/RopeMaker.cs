@@ -44,14 +44,13 @@ namespace pancake.Rope2DEditor
         {
             _renderer = GetComponent<Renderer>();
             _materialPropertyBlock = new MaterialPropertyBlock();
+            _renderer.GetPropertyBlock(_materialPropertyBlock);
         }
         private void Update()
         {
             ground.transform.localPosition = (end1 + end2) * 0.5f ;//new Vector3(0, 0, 0);  
             ground.transform.rotation = Quaternion.FromToRotation(Vector3.right, end2 - end1);
             ground.transform.localScale = new Vector3(Vector3.Distance(end1, end2),0.04f,1f);
-            countHooked = _dragEndPoints[0].hooked + _dragEndPoints[1].hooked;
-            Debug.Log(countHooked);
             if ( !ground.GetComponent<BoxCollider2D>().enabled)
             {
                 if (Vector3.Distance(end1,end2)>=3){
@@ -70,8 +69,11 @@ namespace pancake.Rope2DEditor
                 _renderer.SetPropertyBlock(_materialPropertyBlock);
             }
         }
-    
 
+        public void UpdateHookedCount()
+        {
+            countHooked = _dragEndPoints[0].hooked + _dragEndPoints[1].hooked;
+        }
 
         private void OnDrawGizmos()
         {
@@ -184,6 +186,7 @@ namespace pancake.Rope2DEditor
                 rope.OnNodesCreated();
                 rope.SetLineWidth(scale);
             }
+            
         }
 
         List<Vector3> CalculateSmoothedLocalPoints()

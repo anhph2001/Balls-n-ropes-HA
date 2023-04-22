@@ -140,4 +140,4 @@ MonoBehaviour:
   hasHooked: 0
   anchorLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 9216
