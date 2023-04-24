@@ -11,16 +11,6 @@ public class SpawnRopeController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject SpawnPos;
     public GameObject Rope;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SpawnRope()
     {

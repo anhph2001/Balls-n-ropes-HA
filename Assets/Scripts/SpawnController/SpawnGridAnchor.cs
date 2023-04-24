@@ -11,38 +11,13 @@ public class SpawnGridAnchor : MonoBehaviour
     [SerializeField] private int rows;
     [SerializeField] private GameObject gridObject;
     [SerializeField] private float objectSize = 1f;
-    void Start()
-    {
-    }
 
     // Update is called once per frame
-    void Update()
-    {
-        [Button]
-        void GenGrid()
-        {
-            GenerateGrid();
-        }
-
-        [Button]
-        void ClearGrid()
-        {
-            var childs = transform.childCount;
-            for (int i = childs - 1; i >= 0; i--)
-            {
-                DestroyImmediate(transform.GetChild(i).gameObject, true);
-            }
-        }
-    }
     void GenerateGrid()
     {
-            
         float gridWidth = columns * objectSize;   
-        float gridHeight = rows * objectSize;  
-
-
+        float gridHeight = rows * objectSize;
         Vector3 gridStartPosition = new Vector3(-gridWidth / 2f + objectSize / 2f, gridHeight / 2f - objectSize / 2f, 0f);
-
         for (int row = 0; row < rows; row++)
         {
             for (int column = 0; column < columns; column++)
@@ -55,4 +30,21 @@ public class SpawnGridAnchor : MonoBehaviour
             }
         }
     }
+#if UNITY_EDITOR
+    [Button]
+    public void GenGrid()
+    {
+        GenerateGrid();
+    }
+
+    [Button]
+    public void ClearGrid()
+    {
+        var childs = transform.childCount;
+        for (int i = childs - 1; i >= 0; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject, true);
+        }
+    }
+#endif
 }

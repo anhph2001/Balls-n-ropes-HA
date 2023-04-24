@@ -10,9 +10,11 @@ public class GunEmplacement : MonoBehaviour
     [SerializeField] [Range(1f, 100f)] private float force = 45f;
     public Vector3 StartPos;
     private Camera _camera;
-
+    private bool Moving = true;
     [SerializeField]
     private LayerMask gunLayerMask;
+
+    private Anchor currentAnchor;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,15 +22,12 @@ public class GunEmplacement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnMouseDown()
     {
         StartPos = this.transform.position;
         GetComponent<CircleCollider2D>().enabled = false;
+        Moving = true;
     }
 
     private void OnMouseDrag()
@@ -50,19 +49,26 @@ public class GunEmplacement : MonoBehaviour
         {
             Vector3 anchorPos = hit.collider.gameObject.transform.position;
             if (!hit.collider.gameObject.GetComponent<Anchor>().hasHooked)
-            transform.position = new Vector3(anchorPos.x, anchorPos.y, 0);
+            {
+                transform.position = new Vector3(anchorPos.x, anchorPos.y, 0);
+                hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
+                if (currentAnchor != null) currentAnchor.hasHooked = false;
+                currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+            }
             else transform.position = StartPos;
+            
         }
         else
         {
             transform.position = StartPos;
         }
-        
+
+        Moving = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Ball"))
+        if (col.gameObject.CompareTag("Ball") && !Moving)
         {
             LevelController.Instance.currentLevel.currentPoint += LevelController.Instance.currentLevel.pointWhenHit;
             Vector3 ballPos = col.gameObject.transform.position;

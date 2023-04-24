@@ -7,11 +7,6 @@ public class SpawnBallController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject Ball;
     [SerializeField] private Transform SpawnPos;
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     public void SpawnBall()
     {

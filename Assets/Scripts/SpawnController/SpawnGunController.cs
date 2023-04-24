@@ -11,17 +11,6 @@ public class SpawnGunController : MonoBehaviour
     // Start is called before the first frame update
     public GameObject SpawnPos;
     public GameObject Gun;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SpawnGun()
     {
         //Instantiate(Rope, SpawnPos.transform.position,Quaternion.identity);

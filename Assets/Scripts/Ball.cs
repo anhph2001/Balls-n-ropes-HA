@@ -61,7 +61,10 @@ public class Ball : MonoBehaviour
                     GameObject rope = hit.collider.gameObject;
                     RopeMaker rm = rope.GetComponentInParent<RopeMaker>();
                     if (rm.ground.GetComponent<BoxCollider2D>().enabled)
+                    {
                         rope.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
+                        
+                    }
                 }
             }
         }

@@ -15,6 +15,7 @@ public class DragEndPoint : MonoBehaviour
     public int typeEnd;
     public Vector3 StartPos;
     public int hooked = 0;
+    private Anchor currentAnchor = null;
     void Start()
     {
         _camera = ropeMaker.GetComponentInParent<Level>().Camera;
@@ -91,6 +92,8 @@ public class DragEndPoint : MonoBehaviour
                 
                 ropeMaker.CreateRope();
                 hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
+                if (currentAnchor != null) currentAnchor.hasHooked = false;
+                currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
             }
             else
             {
