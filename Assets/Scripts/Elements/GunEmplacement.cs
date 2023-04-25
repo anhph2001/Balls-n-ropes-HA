@@ -14,7 +14,7 @@ public class GunEmplacement : MonoBehaviour
     [SerializeField]
     private LayerMask gunLayerMask;
 
-    private Anchor currentAnchor;
+    private Anchor currentAnchor = null;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

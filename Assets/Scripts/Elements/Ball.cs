@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Pancake;
+using DG.Tweening;
 using pancake.Rope2DEditor;
 using UnityEngine;
 public class Ball : MonoBehaviour
@@ -38,11 +35,8 @@ public class Ball : MonoBehaviour
             transform.position = spawnPos.position;
             this.gameObject.layer = LayerMask.NameToLayer("BallHitPipe");
             GetComponent<Rigidbody2D>().Sleep();
-        }
-
-        if (transform.position.y > -4f && transform.position.y < 9) 
-        {
-            GetComponent<TrailRenderer>().enabled = true;
+            DOTween.Sequence().AppendInterval(.2f).AppendCallback(() =>
+                GetComponent<TrailRenderer>().enabled = true);
         }
     }
 
