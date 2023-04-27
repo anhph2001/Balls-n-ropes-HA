@@ -12,7 +12,6 @@ public class TeleportHole : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ball"))
         {
-            Debug.Log("dm");
             Vector3 exitPosition = TeleportExit.position;
             TrailRenderer trailRenderer = col.gameObject.GetComponent<TrailRenderer>();
             trailRenderer.enabled = false;
