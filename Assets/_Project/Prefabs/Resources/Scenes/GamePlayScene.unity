@@ -517,7 +517,7 @@ MonoBehaviour:
   guiLayers:
     serializedVersion: 2
     m_Bits: 32
-  useTouch: 1
+  useTouch: 0
   useHover: 1
   useMouse: 1
   useSimulator: 1

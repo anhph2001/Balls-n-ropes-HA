@@ -21,6 +21,7 @@ public class Level : MonoBehaviour
     public int pointToWin;
     public Image LoadBar;
     public TextMeshProUGUI Point;
+    public LevelType LevelType;
     #if UNITY_EDITOR
     [Button]
     private void StartLevel()
@@ -102,4 +103,10 @@ public class Level : MonoBehaviour
     {
          
     }
+}
+
+public enum LevelType
+{
+    HasAnchor,
+    Free
 }

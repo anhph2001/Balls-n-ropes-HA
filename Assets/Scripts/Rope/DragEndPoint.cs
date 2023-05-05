@@ -68,32 +68,49 @@ public class DragEndPoint : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector3 worldPosition = _camera.ScreenToWorldPoint(mousePosition);
         worldPosition.z = 0;
-        RaycastHit2D hit = Physics2D.CircleCast(worldPosition, circleCollider2D.radius, Vector3.forward,10f, circleLayerMask);
-        if (hit)
+        if (LevelController.Instance.currentLevel.LevelType == LevelType.HasAnchor)
         {
-            bool circleHasHooked = hit.collider.gameObject.GetComponent<Anchor>().hasHooked;
-            if (!circleHasHooked)
+            RaycastHit2D hit = Physics2D.CircleCast(worldPosition, circleCollider2D.radius, Vector3.forward, 10f,
+                circleLayerMask);
+            if (hit)
             {
-                if (typeEnd == 1)
+                bool circleHasHooked = hit.collider.gameObject.GetComponent<Anchor>().hasHooked;
+                if (!circleHasHooked)
                 {
-                    Vector3 pos = hit.collider.gameObject.transform.position;
-                    ropeMaker.end1 =
-                        ropeMaker.transform.InverseTransformPoint(pos.x,pos.y,0);
+                    if (typeEnd == 1)
+                    {
+                        Vector3 pos = hit.collider.gameObject.transform.position;
+                        ropeMaker.end1 =
+                            ropeMaker.transform.InverseTransformPoint(pos.x, pos.y, 0);
+                    }
+                    else
+                    {
+                        Vector3 pos = hit.collider.gameObject.transform.position;
+                        ropeMaker.end2 =
+                            ropeMaker.transform.InverseTransformPoint(pos.x, pos.y, 0);
+                    }
+
+                    hooked = 1;
+                    ropeMaker.UpdateHookedCount();
+
+                    ropeMaker.CreateRope();
+                    hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
+                    if (currentAnchor != null) currentAnchor.hasHooked = false;
+                    currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
                 }
                 else
                 {
-                    Vector3 pos = hit.collider.gameObject.transform.position;
-                    ropeMaker.end2 =
-                        ropeMaker.transform.InverseTransformPoint(pos.x,pos.y,0);
-                }
+                    if (typeEnd == 1)
+                    {
+                        ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                    }
+                    else
+                    {
+                        ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                    }
 
-                hooked = 1;
-                ropeMaker.UpdateHookedCount();
-                
-                ropeMaker.CreateRope();
-                hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
-                if (currentAnchor != null) currentAnchor.hasHooked = false;
-                currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+                    ropeMaker.CreateRope();
+                }
             }
             else
             {
@@ -105,6 +122,7 @@ public class DragEndPoint : MonoBehaviour
                 {
                     ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(StartPos);
                 }
+
                 ropeMaker.CreateRope();
             }
         }
@@ -112,18 +130,19 @@ public class DragEndPoint : MonoBehaviour
         {
             if (typeEnd == 1)
             {
-                ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                ropeMaker.end1 = ropeMaker.transform.InverseTransformPoint(worldPosition);
             }
             else
             {
-                ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(StartPos);
+                ropeMaker.end2 = ropeMaker.transform.InverseTransformPoint(worldPosition);
             }
+
             ropeMaker.CreateRope();
         }
 
         UpdateEndPoint();
         ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
-        if (ropeMaker.countHooked < 2) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false; ;
+        if (ropeMaker.countHooked < 2 && LevelController.Instance.currentLevel.LevelType == LevelType.HasAnchor) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false; ;
         if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
 
     }
