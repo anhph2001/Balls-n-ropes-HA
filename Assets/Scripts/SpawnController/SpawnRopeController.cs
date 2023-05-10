@@ -23,7 +23,7 @@ public class SpawnRopeController : MonoBehaviour
                 List<DragEndPoint> endPoints = newRopeLine.GetComponentsInChildren<DragEndPoint>().ToList();
                 RopeMaker rm = newRopeLine.GetComponentInChildren<RopeMaker>();
                 if (endPoints[0].typeEnd == 1)
-                endPoints[0].StartPos = rm.transform.TransformPoint(rm.end1);
+                    endPoints[0].StartPos = rm.transform.TransformPoint(rm.end1);
                 else endPoints[0].StartPos = rm.transform.TransformPoint(rm.end2);
                 
                 if (endPoints[1].typeEnd == 1)
