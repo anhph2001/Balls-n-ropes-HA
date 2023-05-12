@@ -44,25 +44,31 @@ public class GunEmplacement : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector3 worldPosition = _camera.ScreenToWorldPoint(mousePosition);
         worldPosition.z = 0;
-        RaycastHit2D hit = Physics2D.CircleCast(worldPosition, .3f, Vector3.forward,10f, gunLayerMask);
-        if (hit)
+        if (LevelController.Instance.currentLevel.LevelType == LevelType.HasAnchor)
         {
-            Vector3 anchorPos = hit.collider.gameObject.transform.position;
-            if (!hit.collider.gameObject.GetComponent<Anchor>().hasHooked)
+            RaycastHit2D hit = Physics2D.CircleCast(worldPosition, .3f, Vector3.forward, 10f, gunLayerMask);
+            if (hit)
             {
-                transform.position = new Vector3(anchorPos.x, anchorPos.y, 0);
-                hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
-                if (currentAnchor != null) currentAnchor.hasHooked = false;
-                currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+                Vector3 anchorPos = hit.collider.gameObject.transform.position;
+                if (!hit.collider.gameObject.GetComponent<Anchor>().hasHooked)
+                {
+                    transform.position = new Vector3(anchorPos.x, anchorPos.y, 0);
+                    hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
+                    if (currentAnchor != null) currentAnchor.hasHooked = false;
+                    currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+                }
+                else transform.position = StartPos;
+
             }
-            else transform.position = StartPos;
-            
+            else
+            {
+                transform.position = StartPos;
+            }
         }
         else
         {
-            transform.position = StartPos;
+            transform.position = worldPosition;
         }
-
         Moving = false;
     }
 
