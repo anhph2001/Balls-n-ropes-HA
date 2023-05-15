@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class GunEmplacement : MonoBehaviour
@@ -14,14 +15,15 @@ public class GunEmplacement : MonoBehaviour
     [SerializeField]
     private LayerMask gunLayerMask;
 
+    private ParticleSystem fxExplosive;
+
     private Anchor currentAnchor = null;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         _camera = GetComponentInParent<Level>().Camera;
+        fxExplosive = GetComponentInChildren<ParticleSystem>();
     }
-
-    // Update is called once per frame
 
     private void OnMouseDown()
     {
@@ -85,7 +87,11 @@ public class GunEmplacement : MonoBehaviour
             Rigidbody2D rbBall = col.gameObject.GetComponent<Rigidbody2D>();
             Vector3 direction = col.gameObject.transform.position - transform.position;
             rbBall.AddForce(direction*force*(Mathf.Abs(rbBall.velocity.y/13f)),ForceMode2D.Impulse);
-            
+            fxExplosive.Play();
+            DOTween.Sequence().AppendInterval(.1f).AppendCallback(() =>
+            {
+            fxExplosive.Stop();
+            });
         }
     }
 
