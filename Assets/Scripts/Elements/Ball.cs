@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
     [SerializeField] [Range(1f,300f)] private float force = 50f;
     private Transform spawnPos;
     private Rigidbody2D rb;
-    [SerializeField] [Range(0f,1f)] private float forceBonce = 1f;
+    [SerializeField] [Range(0f,2f)] private float forceBonce = 1.5f;
     void Start()
     {
         prePos = transform.position;
