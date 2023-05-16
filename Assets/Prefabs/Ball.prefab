@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
-  force: 29
+  force: 19
 --- !u!96 &212350150586611739
 TrailRenderer:
   serializedVersion: 2

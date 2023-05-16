@@ -2825,6 +2825,7 @@ MonoBehaviour:
   pointToWin: 1500
   LoadBar: {fileID: 2823008883288412973}
   Point: {fileID: 4487748778245542036}
+  LevelType: 0
 --- !u!1 &2973643966857447217
 GameObject:
   m_ObjectHideFlags: 0

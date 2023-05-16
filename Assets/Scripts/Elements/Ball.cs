@@ -9,11 +9,13 @@ public class Ball : MonoBehaviour
     public Vector3 direction;
     [SerializeField] [Range(1f,300f)] private float force = 50f;
     private Transform spawnPos;
-    
+    private Rigidbody2D rb;
+    [SerializeField] [Range(0f,1f)] private float forceBonce = 1f;
     void Start()
     {
         prePos = transform.position;
         spawnPos = LevelController.Instance.currentLevel.SpawnBallPos;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -47,6 +49,9 @@ public class Ball : MonoBehaviour
             LevelController.Instance.currentLevel.currentPoint += LevelController.Instance.currentLevel.pointWhenHit;
             direction = (transform.position - prePos).normalized;
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, (transform.position - prePos).normalized,1f);
+            Vector3 inNormal = col.contacts[0].normal;
+            Vector3 reflectVector = Vector3.Reflect(direction, inNormal);
+            rb.AddForce(reflectVector.normalized * forceBonce,ForceMode2D.Impulse);
             for (int i = 0; i < hits.Length; i++)
             { ;
                 RaycastHit2D hit = hits[i];
