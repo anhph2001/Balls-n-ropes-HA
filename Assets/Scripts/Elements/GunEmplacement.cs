@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class GunEmplacement : MonoBehaviour
@@ -14,6 +15,8 @@ public class GunEmplacement : MonoBehaviour
     private bool Moving = true;
     [SerializeField]
     private LayerMask gunLayerMask;
+
+    private Sequence _sequence;
 
     private ParticleSystem fxExplosive;
 
@@ -95,5 +98,23 @@ public class GunEmplacement : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject point = PointPooling.instance.GetObjectPoint();
+        if (!point) return;
+        point.SetActive(true);
+        point.transform.position = other.transform.position;
+        _sequence = DOTween.Sequence();
+        Vector3 endPos = new Vector3(point.transform.position.x, point.transform.position.y + 1f, 0);
+        _sequence.Append(point.transform.DOMove(endPos, .8f))
+            .Join(point.GetComponent<TextMeshPro>().DOFade(0, .8f)).OnComplete(() =>
+            {
+                point.SetActive(false);
+                float newAlpha = 1f;
+                Color newColor = point.GetComponent<TextMeshPro>().color;
+                newColor.a = newAlpha;
+                point.GetComponent<TextMeshPro>().color = newColor;
+            });
+        _sequence.Play();
+    }
 }

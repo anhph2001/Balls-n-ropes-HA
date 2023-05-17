@@ -21,7 +21,7 @@ public class PointPooling : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             GameObject pointHit = Instantiate(point,this.gameObject.transform);
-            pointHit.GetComponent<TextMeshProUGUI>().text = "$" + LevelController.Instance.currentLevel.pointWhenHit;
+            pointHit.GetComponent<TextMeshPro>().text = "$" + LevelController.Instance.currentLevel.pointWhenHit;
             pointHit.SetActive(false);
             poolObjects.Add(pointHit);
         }

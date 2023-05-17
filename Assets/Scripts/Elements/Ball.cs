@@ -58,11 +58,17 @@ public class Ball : MonoBehaviour
             GameObject point = PointPooling.instance.GetObjectPoint();
             point.SetActive(true);
             point.transform.position = col.transform.position;
-            if (_sequence != null) DOTween.Kill(_sequence);
             _sequence = DOTween.Sequence();
             Vector3 endPos = new Vector3(point.transform.position.x, point.transform.position.y + 1f, 0);
-            _sequence.Append(point.transform.DOMove(endPos, .5f))
-                .Join(point.GetComponent<TextMeshProUGUI>().DOFade(0, .5f)).OnComplete(() => point.SetActive(false));
+            _sequence.Append(point.transform.DOMove(endPos, .8f))
+                .Join(point.GetComponent<TextMeshPro>().DOFade(0, .8f)).OnComplete(() =>
+                {
+                    point.SetActive(false);
+                    float newAlpha = 1f;
+                    Color newColor = point.GetComponent<TextMeshPro>().color;
+                    newColor.a = newAlpha;
+                    point.GetComponent<TextMeshPro>().color = newColor;
+                });
             _sequence.Play();
             for (int i = 0; i < hits.Length; i++)
             { ;
