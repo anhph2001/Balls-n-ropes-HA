@@ -35,6 +35,10 @@ public class PointPooling : MonoBehaviour
                 return poolObjects[i];
         }
 
-        return null;
+        GameObject pointHit = Instantiate(point,this.gameObject.transform);
+        pointHit.GetComponent<TextMeshPro>().text = "$" + LevelController.Instance.currentLevel.pointWhenHit;
+        pointHit.SetActive(false);
+        poolObjects.Add(pointHit);
+        return pointHit;
     }
 }

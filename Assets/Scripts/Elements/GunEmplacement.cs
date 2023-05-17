@@ -77,27 +77,6 @@ public class GunEmplacement : MonoBehaviour
         Moving = false;
     }
 
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.CompareTag("Ball") && !Moving)
-        {
-            
-            Vector3 ballPos = col.gameObject.transform.position;
-            Vector2 aimDirection = new Vector2(ballPos.x,ballPos.y)  - rb.position;
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-            rb.rotation = aimAngle;
-            
-            Rigidbody2D rbBall = col.gameObject.GetComponent<Rigidbody2D>();
-            Vector3 direction = col.gameObject.transform.position - transform.position;
-            rbBall.AddForce(direction*force*(Mathf.Abs(rbBall.velocity.y/13f)),ForceMode2D.Impulse);
-            fxExplosive.Play();
-            DOTween.Sequence().AppendInterval(.1f).AppendCallback(() =>
-            {
-            fxExplosive.Stop();
-            });
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Ball") && !Moving)
@@ -119,6 +98,20 @@ public class GunEmplacement : MonoBehaviour
                     point.GetComponent<TextMeshPro>().color = newColor;
                 });
             _sequence.Play();
+            Vector3 ballPos = other.gameObject.transform.position;
+            Vector2 aimDirection = new Vector2(ballPos.x,ballPos.y)  - rb.position;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = aimAngle;
+            
+            Rigidbody2D rbBall = other.gameObject.GetComponent<Rigidbody2D>();
+            Vector3 direction = other.gameObject.transform.position - transform.position;
+            rbBall.AddForce(direction*force,ForceMode2D.Impulse);
+            fxExplosive.Play();
+            DOTween.Sequence().AppendInterval(.1f).AppendCallback(() =>
+            {
+                fxExplosive.Stop();
+            });
         }
+        
     }
 }
