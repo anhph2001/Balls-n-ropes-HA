@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4fe3404f79361d47b93131d9704306b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 43
+  force: 31.9
   StartPos: {x: 0, y: 0, z: 0}
   gunLayerMask:
     serializedVersion: 2

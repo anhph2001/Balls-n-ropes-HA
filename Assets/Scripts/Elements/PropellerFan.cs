@@ -12,6 +12,7 @@ public class PropellerFan : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private GameObject fan;
     private Sequence _sequence;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,20 +23,23 @@ public class PropellerFan : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             Rigidbody2D rbBall = other.gameObject.GetComponent<Rigidbody2D>();
-            rbBall.AddForce(transform.TransformDirection(Vector3.up)*force,ForceMode2D.Impulse);
-            
+            rbBall.AddForce(transform.TransformDirection(Vector3.up) * force, ForceMode2D.Impulse);
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject point = PointPooling.instance.GetObjectPoint();
-        if (!point) return;
-        point.SetActive(true);
-        point.transform.position = other.transform.position;
-        _sequence = DOTween.Sequence();
-        Vector3 endPos = new Vector3(point.transform.position.x, point.transform.position.y + 1f, 0);
-        _sequence.Append(point.transform.DOMove(endPos, .8f))
+        if (other.gameObject.CompareTag("Ball"))
+        { 
+            LevelController.Instance.currentLevel.currentPoint += LevelController.Instance.currentLevel.pointWhenHit;
+            GameObject point = PointPooling.instance.GetObjectPoint();
+            if (!point) return;
+            point.SetActive(true);
+            point.transform.position = other.transform.position;
+            _sequence = DOTween.Sequence();
+            Vector3 endPos = new Vector3(point.transform.position.x, point.transform.position.y + 1f, 0);
+            _sequence.Append(point.transform.DOMove(endPos, .8f))
             .Join(point.GetComponent<TextMeshPro>().DOFade(0, .8f)).OnComplete(() =>
             {
                 point.SetActive(false);
@@ -44,6 +48,8 @@ public class PropellerFan : MonoBehaviour
                 newColor.a = newAlpha;
                 point.GetComponent<TextMeshPro>().color = newColor;
             });
-        _sequence.Play();
+            _sequence.Play();
+        }
     }
+
 } 
