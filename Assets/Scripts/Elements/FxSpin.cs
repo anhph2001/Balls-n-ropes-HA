@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FxSpin : MonoBehaviour
 {
-    [SerializeField] [Range(20f,100f)] private float speedSpin = 50f;
+    [SerializeField] [Range(20f,100f)] private float speedSpin = 80f;
     // Update is called once per frame
     void Update()
     {

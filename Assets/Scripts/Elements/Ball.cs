@@ -1,5 +1,7 @@
 using DG.Tweening;
+using Pancake.Linq;
 using pancake.Rope2DEditor;
+using TMPro;
 using UnityEngine;
 public class Ball : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Ball : MonoBehaviour
     private Transform spawnPos;
     private Rigidbody2D rb;
     [SerializeField] [Range(0f,2f)] private float forceBonce = 1.5f;
+    private Sequence _sequence;
     void Start()
     {
         prePos = transform.position;
@@ -52,6 +55,15 @@ public class Ball : MonoBehaviour
             Vector3 inNormal = col.contacts[0].normal;
             Vector3 reflectVector = Vector3.Reflect(direction, inNormal);
             rb.AddForce(reflectVector.normalized * forceBonce,ForceMode2D.Impulse);
+            GameObject point = PointPooling.instance.GetObjectPoint();
+            point.SetActive(true);
+            point.transform.position = col.transform.position;
+            if (_sequence != null) DOTween.Kill(_sequence);
+            _sequence = DOTween.Sequence();
+            Vector3 endPos = new Vector3(point.transform.position.x, point.transform.position.y + 1f, 0);
+            _sequence.Append(point.transform.DOMove(endPos, .5f))
+                .Join(point.GetComponent<TextMeshProUGUI>().DOFade(0, .5f)).OnComplete(() => point.SetActive(false));
+            _sequence.Play();
             for (int i = 0; i < hits.Length; i++)
             { ;
                 RaycastHit2D hit = hits[i];
@@ -62,7 +74,6 @@ public class Ball : MonoBehaviour
                     if (rm.ground.GetComponent<BoxCollider2D>().enabled)
                     {
                         rope.GetComponent<Rigidbody2D>().AddForce(direction * force, ForceMode2D.Impulse);
-                        
                     }
                 }
             }
