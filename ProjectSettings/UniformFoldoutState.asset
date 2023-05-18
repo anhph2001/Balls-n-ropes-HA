@@ -54,7 +54,7 @@
         },
         {
             "key": "UIPOPUP_LEADERBOARD",
-            "state": true
+            "state": false
         },
         {
             "key": "LB_COLOR_RANK1",
@@ -74,6 +74,18 @@
         },
         {
             "key": "LB_COLOR_OUTRANK",
+            "state": true
+        },
+        {
+            "key": "UIPOPUP_NOTIFICATION",
+            "state": true
+        },
+        {
+            "key": "UIPOPUP_NOINTERNET",
+            "state": true
+        },
+        {
+            "key": "UIPOPUP_LOGIN",
             "state": true
         }
     ]
