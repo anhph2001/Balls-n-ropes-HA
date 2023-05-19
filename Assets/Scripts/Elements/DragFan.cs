@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class DragFan : MonoBehaviour
     [SerializeField] private LayerMask fanLayerMask;
     private Anchor currentAnchor = null;
     [SerializeField] private GameObject fan;
+    public int Index;
+    public bool moved;
+    public Action<int> movedCallBack;
     void Start()
     {
         _camera = GetComponentInParent<Level>().Camera;
@@ -44,6 +48,11 @@ public class DragFan : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
                     if (currentAnchor != null) currentAnchor.hasHooked = false;
                     currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+                    if (!moved)
+                    {
+                        movedCallBack?.Invoke(Index);
+                        moved = true;
+                    }
                 }
                 else fan.transform.position = StartPos;
 

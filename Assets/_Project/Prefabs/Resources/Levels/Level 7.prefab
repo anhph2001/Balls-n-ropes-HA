@@ -6181,6 +6181,8 @@ MonoBehaviour:
   - {fileID: 6792565006947346731, guid: 32828f4b55dbb0c4ebcc1110b35bccbc, type: 3}
   - {fileID: 763468611775566327, guid: 8d67a09a63095084bbdf1c1a51f2bced, type: 3}
   SpawnPos: {fileID: 5253564414113346209}
+  randomItems: []
+  types: 
 --- !u!1 &6425935488616023249
 GameObject:
   m_ObjectHideFlags: 0
@@ -6218,7 +6220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -245.4, y: 202.6}
+  m_AnchoredPosition: {x: -245.4, y: 202.59998}
   m_SizeDelta: {x: 372.6, y: 332.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7469192937753745678
@@ -6352,7 +6354,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 221, y: 202.61}
+  m_AnchoredPosition: {x: 221, y: 202.60999}
   m_SizeDelta: {x: 395.6, y: 332.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7903525178725548361
@@ -7577,7 +7579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -506, y: 504.9}
+  m_AnchoredPosition: {x: -506, y: 504.90002}
   m_SizeDelta: {x: 395.6, y: 125.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1563220027894265374

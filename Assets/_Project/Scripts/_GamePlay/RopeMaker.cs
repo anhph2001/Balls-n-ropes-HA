@@ -41,6 +41,9 @@ namespace pancake.Rope2DEditor
         private MaterialPropertyBlock _materialPropertyBlock;
         private DragEndPoint[] _dragEndPoints => GetComponentsInChildren<DragEndPoint>();
         public int countHooked;
+        public bool moved = false;
+        public int Index;
+        public Action<int> movedCallBack;
         private void Awake()
         {
             _renderer = GetComponent<Renderer>();
@@ -69,6 +72,8 @@ namespace pancake.Rope2DEditor
                 _materialPropertyBlock.SetColor("_Color",Color.green);
                 _renderer.SetPropertyBlock(_materialPropertyBlock);
             }
+
+            if (countHooked == 2) moved = true;
         }
 
         public void UpdateHookedCount()

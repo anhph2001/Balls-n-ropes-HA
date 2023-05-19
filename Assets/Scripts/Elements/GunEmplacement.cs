@@ -21,6 +21,9 @@ public class GunEmplacement : MonoBehaviour
     private ParticleSystem fxExplosive;
 
     private Anchor currentAnchor = null;
+    public bool moved = false;
+    public Action<int> movedCallBack;
+    public int Index;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -61,6 +64,11 @@ public class GunEmplacement : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Anchor>().hasHooked = true;
                     if (currentAnchor != null) currentAnchor.hasHooked = false;
                     currentAnchor = hit.collider.gameObject.GetComponent<Anchor>();
+                    if (!moved)
+                    {
+                        movedCallBack?.Invoke(Index);
+                        moved = true;
+                    }
                 }
                 else transform.position = StartPos;
 

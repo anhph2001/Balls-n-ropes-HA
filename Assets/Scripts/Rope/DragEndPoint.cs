@@ -143,6 +143,7 @@ public class DragEndPoint : MonoBehaviour
         UpdateEndPoint();
         ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = true;
         if (ropeMaker.countHooked < 2 && LevelController.Instance.currentLevel.LevelType == LevelType.HasAnchor) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false; ;
+        if (ropeMaker.countHooked == 2) ropeMaker.movedCallBack?.Invoke(ropeMaker.Index);
         if (Vector3.Distance(ropeMaker.end1,ropeMaker.end2)>=3) ropeMaker.ground.GetComponent<BoxCollider2D>().enabled = false;
 
     }
